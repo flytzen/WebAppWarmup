@@ -22,8 +22,8 @@
             Log.Information("HomeController.Index called");
             try
             {
-                //return this.View("Index", this.service.GetSomeData());
-                return this.Ok("plain");
+                return this.View("Index", this.service.GetSomeData());
+                //return this.Ok("plain");
                 //return this.View("Index", "bob");
             }
                 catch (Exception e)
