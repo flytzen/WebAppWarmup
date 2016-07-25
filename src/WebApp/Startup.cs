@@ -20,6 +20,8 @@ namespace WebApp
             Log.Logger = new LoggerConfiguration()
               .Enrich.FromLogContext()
               .WriteTo.LiterateConsole()
+              //.WriteTo.RollingFile("logs\\serilog-{Date}.log")
+              .WriteTo.Seq(serverUrl: "http://seq.neworbit.co.uk:5341/", apiKey: "olUtGkH8wS4JcYAS8e")
               .CreateLogger();
         }
         // This method gets called by the runtime. Use this method to add services to the container.
@@ -39,6 +41,8 @@ namespace WebApp
                 app.UseDeveloperExceptionPage();
             }
 
+            app.UseDefaultFiles();
+
             app.UseStaticFiles();
 
             app.UseMvc(routes =>
@@ -47,6 +51,7 @@ namespace WebApp
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
+            Log.Information("Startup.Configure completed");
         }
     }
 }

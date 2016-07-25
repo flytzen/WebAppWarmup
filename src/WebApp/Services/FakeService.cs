@@ -9,12 +9,15 @@
     {
         private static readonly object Locker = new object();
 
+        private static Guid identifier;
         private static volatile bool initialized;
-        private static Random rnd;
-        public int GetSomeData()
+
+        public static DateTime Initialised { get; private set; }
+
+        public string GetSomeData()
         {
             InitializeIfRequired();
-            return rnd.Next(1, 100);
+            return identifier.ToString();
         }
 
         private static void InitializeIfRequired()
@@ -32,7 +35,8 @@
         {
             Log.Information("Starting FakeService initialisation");
             Thread.Sleep(TimeSpan.FromSeconds(10));
-            rnd = new Random();
+            identifier = Guid.NewGuid();
+            Initialised = DateTime.UtcNow;
             initialized = true;
             Log.Information("FakeService initialization finished");
         }

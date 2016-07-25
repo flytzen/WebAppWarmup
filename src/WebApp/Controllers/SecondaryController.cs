@@ -15,7 +15,7 @@
 
         public IActionResult Index()
         {
-            return this.View(this.service.GetSomeData());
+            return this.View("Index", this.service.GetSomeData());
         }
     }
 }

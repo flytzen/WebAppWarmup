@@ -14,6 +14,7 @@
     },
     "Serilog.Extensions.Logging": "1.1.0-dev-10116",
     "Serilog.Sinks.Literate": "2.1.0-dev-00028",
+    "Serilog.Sinks.RollingFile": "2.1.0",
     "Microsoft.AspNetCore.StaticFiles": "1.0.0",
     "Microsoft.VisualStudio.Web.CodeGeneration.Tools": {
       "version": "1.0.0-preview2-final",
@@ -22,8 +23,8 @@
     "Microsoft.VisualStudio.Web.CodeGenerators.Mvc": {
       "version": "1.0.0-preview2-final",
       "type": "build"
-    }
-
+    },
+    "Serilog.Sinks.Seq": "2.0.0"
   },
 
   "tools": {
@@ -68,6 +69,7 @@
   "publishOptions": {
     "include": [
       "wwwroot",
+      "Views",
       "web.config"
     ]
   },
