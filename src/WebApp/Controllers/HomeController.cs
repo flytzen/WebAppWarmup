@@ -10,19 +10,20 @@
 
     public class HomeController : Controller
     {
-        private FakeService service;
+        //private FakeService service;
 
-        public HomeController()
-        {
-            this.service = new FakeService();
-        }
+        //public HomeController()
+        //{
+        //    this.service = new FakeService();
+        //}
 
         public IActionResult Index()
         {
             Log.Information("HomeController.Index called");
             try
             {
-                return this.View("Index", this.service.GetSomeData());
+                return this.View("Index", "Home no longer uses FakeService");
+                //return this.View("Index", this.service.GetSomeData());
                 //return this.Ok("plain");
                 //return this.View("Index", "bob");
             }
